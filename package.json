@@ -1,0 +1,53 @@
+{
+  "name": "ridesetu",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:seed": "tsx src/scripts/seed.ts",
+    "seed:demo-users": "tsx src/scripts/seed-demo-users.ts",
+    "db:test": "tsx src/scripts/test-connection.ts",
+    "test:auth-db": "tsx src/scripts/test-auth-database.ts",
+    "test:availability": "tsx src/scripts/test-availability-regression.ts",
+    "test:fleet": "tsx src/scripts/test-vendor-fleet-listing.ts",
+    "test:handover": "tsx src/scripts/test-handover-inspection.ts",
+    "test:mobile-qa": "tsx src/scripts/test-final-mobile-qa.ts",
+    "test:final-qa": "tsx src/scripts/test-final-production-qa.ts",
+    "test:checkout": "tsx src/scripts/test-checkout-flow.ts",
+    "test:concurrency": "tsx src/scripts/test-concurrency.ts",
+    "test:e2e": "tsx src/scripts/verify-e2e.ts"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "canvas-confetti": "^1.9.4",
+    "clsx": "^2.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.475.0",
+    "mongoose": "^8.10.1",
+    "next": "^14.2.24",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/dotenv": "^8.2.3",
+    "@types/jsonwebtoken": "^9.0.8",
+    "@types/node": "^20.17.19",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "autoprefixer": "^10.4.20",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.4.2",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.24",
+    "postcss": "^8.5.2",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

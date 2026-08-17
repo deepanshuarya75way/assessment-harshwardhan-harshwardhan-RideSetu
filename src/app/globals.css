@@ -1,0 +1,438 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Semantic Design Tokens (Light Mode Default) */
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --surface: #ffffff;
+  --surface-secondary: #f1f5f9;
+  --surface-elevated: #ffffff;
+  --border: #e2e8f0;
+  --border-subtle: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+  --accent: #ff6b00;
+  --accent-hover: #e05e00;
+  --success: #059669;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --info: #2563eb;
+
+  /* Brand Variables */
+  --bg-primary: #f8fafc;
+  --bg-surface: #ffffff;
+  --navy-950: #060d17;
+  --navy-900: #0b132b;
+  --navy-850: #1c2541;
+  --brand-orange: #ff6b00;
+  --brand-saffron: #ff8c38;
+  --emerald-600: #059669;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  color: var(--foreground);
+  background-color: var(--background);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Hide scrollbar for tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Premium Surface Classes */
+.card-premium {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 4px 20px -2px rgba(11, 19, 43, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-premium-hover {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.22s ease;
+}
+
+.card-premium-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 107, 0, 0.35);
+  box-shadow: 0 20px 35px -10px rgba(11, 19, 43, 0.12);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 20px 40px -15px rgba(6, 13, 23, 0.35);
+}
+
+.glass-dark {
+  background: rgba(11, 19, 43, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+}
+
+/* Accessible focus ring */
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid #ff6b00;
+  outline-offset: 2px;
+}
+
+/* Keyframe Micro-Interactions */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* --- HIMALAYAN CINEMATIC ANIMATIONS --- */
+@keyframes riderTravel {
+  0% {
+    transform: translateX(-160px);
+  }
+  100% {
+    transform: translateX(calc(100vw + 160px));
+  }
+}
+
+@keyframes bikeSuspension {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-2.5px) rotate(0.8deg);
+  }
+  50% {
+    transform: translateY(1px) rotate(-0.4deg);
+  }
+  75% {
+    transform: translateY(-1.5px) rotate(0.4deg);
+  }
+}
+
+@keyframes wheelSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes roadDashes {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes cloudDrift {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes cloudDriftSlow {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes birdsFlight {
+  0% {
+    transform: translate(-100px, 0) scale(0.85);
+  }
+  50% {
+    transform: translate(50vw, -15px) scale(1);
+  }
+  100% {
+    transform: translate(calc(100vw + 100px), -5px) scale(0.9);
+  }
+}
+
+@keyframes birdsFlightDelayed {
+  0% {
+    transform: translate(-80px, 10px) scale(0.7);
+  }
+  50% {
+    transform: translate(45vw, -8px) scale(0.85);
+  }
+  100% {
+    transform: translate(calc(100vw + 80px), 8px) scale(0.75);
+  }
+}
+
+@keyframes foregroundTravel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes parallaxMid {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-15px);
+  }
+}
+
+@keyframes parallaxNear {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-24px);
+  }
+}
+
+@keyframes pingSlow {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.38;
+    transform: scale(1.08);
+  }
+}
+
+/* Staggered Entrance Utility Classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-stagger-1 {
+  opacity: 0;
+  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards;
+}
+
+.animate-stagger-2 {
+  opacity: 0;
+  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.animate-stagger-3 {
+  opacity: 0;
+  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+}
+
+.animate-stagger-4 {
+  opacity: 0;
+  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-float {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Himalayan Animation Classes */
+.animate-rider-travel {
+  animation: riderTravel 16s linear infinite;
+}
+
+.animate-bike-suspension {
+  animation: bikeSuspension 1.2s ease-in-out infinite;
+}
+
+.animate-wheel-spin {
+  animation: wheelSpin 0.55s linear infinite;
+}
+
+.animate-road-dashes {
+  animation: roadDashes 1.6s linear infinite;
+}
+
+.animate-cloud-drift {
+  animation: cloudDrift 55s linear infinite;
+}
+
+.animate-cloud-drift-slow {
+  animation: cloudDriftSlow 80s linear infinite;
+}
+
+.animate-birds-flight {
+  animation: birdsFlight 22s ease-in-out infinite;
+}
+
+.animate-birds-flight-delayed {
+  animation: birdsFlightDelayed 28s ease-in-out 10s infinite;
+}
+
+.animate-foreground-travel {
+  animation: foregroundTravel 10s linear infinite;
+}
+
+.animate-parallax-mid {
+  animation: parallaxMid 18s ease-in-out infinite;
+}
+
+.animate-parallax-near {
+  animation: parallaxNear 12s ease-in-out infinite;
+}
+
+.animate-ping-slow {
+  animation: pingSlow 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 5s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.animate-shimmer::after {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.25) 20%,
+    rgba(255, 255, 255, 0.6) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 1.8s infinite;
+  content: '';
+}
+
+/* Atmospheric Mountain Dot Matrix Pattern */
+.bg-himalayan-dots {
+  background-image: radial-gradient(rgba(255, 107, 0, 0.18) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Accessibility: Reduce motion for sensitive users */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-rider-travel,
+  .animate-bike-suspension,
+  .animate-wheel-spin,
+  .animate-road-dashes,
+  .animate-cloud-drift,
+  .animate-cloud-drift-slow,
+  .animate-birds-flight,
+  .animate-birds-flight-delayed,
+  .animate-foreground-travel,
+  .animate-parallax-mid,
+  .animate-parallax-near,
+  .animate-ping-slow,
+  .animate-pulse-slow {
+    animation: none !important;
+  }
+}
