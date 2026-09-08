@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" rx="30" fill="#F8FAFC"/>
+  <rect x="20" y="20" width="760" height="460" rx="20" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="4"/>
+  <!-- TVS Jupiter 125 Scooter Graphic -->
+  <g transform="translate(150, 100)">
+    <circle cx="100" cy="240" r="55" fill="#1E293B" stroke="#64748B" stroke-width="10"/>
+    <circle cx="400" cy="240" r="55" fill="#1E293B" stroke="#64748B" stroke-width="10"/>
+    <circle cx="100" cy="240" r="25" fill="#94A3B8"/>
+    <circle cx="400" cy="240" r="25" fill="#94A3B8"/>
+    <path d="M 80 200 Q 150 120 220 180 L 280 230 L 380 230 Q 420 180 390 120 L 360 80 Q 300 70 250 120 Z" fill="#2563EB"/>
+    <path d="M 360 80 L 340 30 L 370 25 L 390 75 Z" fill="#1E293B"/>
+    <circle cx="350" cy="35" r="15" fill="#FEF08A" stroke="#CA8A04" stroke-width="3"/>
+    <path d="M 170 140 Q 230 110 290 140 Q 250 160 170 140 Z" fill="#0F172A"/>
+    <rect x="230" y="210" width="90" height="15" rx="5" fill="#475569"/>
+    <text x="250" y="300" font-family="system-ui, sans-serif" font-size="22" font-weight="900" fill="#0F172A" text-anchor="middle">TVS JUPITER 125</text>
+    <text x="250" y="325" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#2563EB" text-anchor="middle">125cc Automatic Scooter • RideSetu Verified</text>
+  </g>
+</svg>
