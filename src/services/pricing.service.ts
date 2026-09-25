@@ -23,6 +23,11 @@ export interface PricingCalculationResult {
   };
 }
 
+export function CalculateDynamicPrice(
+  basePrice : number,
+  pickupDate : Date,
+  demandCount : number = 0
+)
 export class PricingService {
   /**
    * Centralized server-side pricing engine for RideSetu bookings.

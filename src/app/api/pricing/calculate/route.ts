@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import connectToDatabase from '@/lib/mongodb';
 import { Vehicle } from '@/models/Vehicle';
@@ -6,8 +6,57 @@ import { Coupon } from '@/models/Coupon';
 import { PricingService } from '@/services/pricing.service';
 import { AvailabilityService } from '@/services/availability.service';
 import { getAuthUser } from '@/lib/auth';
+import { calculateDynamicPrice} from "../../../../services/dynamic-pricing.service";
+import Booking from "@/models/Booking";
 
-async function processPricingCalculation(
+
+export async function POST(request : NextRequest){
+  try{
+    const body = await request.json();
+    const{
+      basePrice,
+      pickupDate,
+      demandCount,
+    } = body;
+    if ( 
+      typeof basePrice !== "number" || basePrice <= 0
+    ) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Invalid base Price",
+
+        },
+        {status: 400}
+      );
+    }
+    if(!pickupDate){
+      return NextResponse.json(
+        {
+          success: false,
+          message:"pickup date is required" ,
+        } {status: 400}
+      );
+    }
+    const result = calculateDynamicPrice({
+      basePrice,
+      pickupDate,
+      demandCount
+    });
+    return NextResponse.json({
+      success: true,
+      pricing: result,
+    });
+
+  }  catch(error){
+    console.error("Dynamic Pricing error :", error);
+    return NextResponse.json({
+      success: false,
+      message: "Unable to calculate dynamic price",
+    },{status: 500});
+  }
+}
+export async function processPricingCalculation(
   vehicleId: string,
   pickupDateTime: string,
   returnDateTime: string,
